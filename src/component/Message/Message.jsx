@@ -1,28 +1,31 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Message.css";
 
-const Message = ({ user, message, classs }) => {
+const Message = ({ id, activeMessageId, setActiveMessageId, user, message, classs, replyTo, setReplyingTo }) => {
   const [showMenu, setShowMenu] = useState(false);
   const messageRef = useRef();
   const menuRef = useRef();
 
   const isMe = classs === "right";
-  const content = isMe ? "You:" : `${user}:`;
+  const content = isMe ? "You" : user;
 
   const handleContextMenu = (e) => {
     e.preventDefault();
-    setShowMenu(true);
+    setActiveMessageId(id);
   };
+
+  useEffect(() => {
+    setShowMenu(activeMessageId === id);
+  }, [activeMessageId, id]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(message);
-    setShowMenu(false);
-    alert("Message copied!");
+    setActiveMessageId(null);
   };
 
   const handleReply = () => {
-    setShowMenu(false);
-    alert(`Reply to: ${message}`);
+    setReplyingTo({ user: content, message });
+    setActiveMessageId(null);
   };
 
   useEffect(() => {
@@ -32,16 +35,27 @@ const Message = ({ user, message, classs }) => {
         !menuRef.current.contains(e.target) &&
         !messageRef.current.contains(e.target)
       ) {
-        setShowMenu(false);
+        setActiveMessageId(null);
       }
     };
     document.addEventListener("click", handleClickOutside);
     return () => document.removeEventListener("click", handleClickOutside);
-  }, []);
+  }, [setActiveMessageId]);
 
   return (
-    <div className={`messageRow ${classs}`} ref={messageRef} onContextMenu={handleContextMenu}>
+    <div
+      className={`messageRow ${classs}`}
+      ref={messageRef}
+      onContextMenu={handleContextMenu}
+    >
       <div className={`messageBubble ${classs}`}>
+        {/* If this message is a reply, show preview */}
+        {replyTo && (
+          <div className="replyBubble">
+            <small><strong>{replyTo.user}</strong>: {replyTo.message}</small>
+          </div>
+        )}
+
         <pre className="messageText">
           <strong>{content}</strong>
           {"\n"}

@@ -1,72 +1,116 @@
 .messageRow {
   display: flex;
-  margin: 8px 12px;
-  width: 100%;
+  margin: 6px 20px;
+  width: 98%;
+  max-width: 98%;
+  position: relative;
 }
 
-.messageRow.left {
-  justify-content: flex-start;
-}
-
-.messageRow.right {
-  justify-content: flex-end;
-}
+.messageRow.left { justify-content: flex-start; }
+.messageRow.right { justify-content: flex-end; }
 
 .messageBubble {
   padding: 10px 14px;
-  border-radius: 16px;
+  border-radius: 8px;
   font-family: "Segoe UI", sans-serif;
   font-size: 14px;
-  max-width: 80%;
+  max-width: 65%;
   white-space: pre-wrap;
   word-wrap: break-word;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  position: relative;
+  transition: all 0.2s ease;
 }
 
+/* Dark theme WhatsApp-like colors */
 .messageBubble.left {
-  background-color: #dcf8c6; /* WhatsApp green */
-  color: black;
+  background-color: #1e1e2e;
+  color: #e0e0e0;
   border-top-left-radius: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .messageBubble.right {
-  background-color: #e4e6eb; /* Gray bubble for self */
-  color: black;
+  background-color: #056162;
+  color: #fff;
   border-top-right-radius: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
-.messageText {
-  margin: 0;
-  line-height: 1.4;
+.messageText { margin: 0; line-height: 1.4; }
+
+.typingIndicator {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #ccc;
+  background: #1e1e2e;
+  border-radius: 8px;
+  padding: 6px 12px;
+  align-self: flex-start;
 }
 
 /* Dropdown Menu */
 .dropdownMenu {
   position: absolute;
-  top: -60px;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 999;
-  width: 120px;
+  top: 90%;
+  background: #1e1e2e;
+  border: 1px solid #444;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  z-index: 1000;
+  width: 130px;
   padding: 5px 0;
+  font-size: 13px;
+  color: #fff;
 }
 
-.dropdownMenu.left {
-  left: 12px;
-}
-
-.dropdownMenu.right {
-  right: 12px;
-}
+.dropdownMenu.left { left: 0; }
+.dropdownMenu.right { right: 0; }
 
 .dropdownItem {
-  padding: 8px 15px;
-  font-size: 14px;
+  padding: 8px 12px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.dropdownItem:hover {
-  background-color: #f0f0f0;
+.dropdownItem:hover { background-color: #333; }
+
+.messageBubble:hover { opacity: 0.95; }
+
+.replyPreview {
+  background: #222;
+  color: #ddd;
+  padding: 5px 10px;
+  border-left: 3px solid #00aaff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.replyBubble {
+  background: rgba(255,255,255,0.1);
+  border-left: 3px solid #00aaff;
+  padding: 2px 6px;
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: #ccc;
+}
+
+/* Responsive */
+@media (max-width:768px) {
+  .messageBubble { max-width:80%; font-size:13px; padding:8px 12px; }
+  .dropdownMenu { width:110px; font-size:12px; }
+  .replyPreview { font-size:12px; padding:4px 8px; }
+  .replyBubble { font-size:11px; padding:2px 5px; }
+}
+
+@media (max-width:480px) {
+  .messageBubble { max-width:90%; font-size:12px; padding:6px 10px; }
+  .dropdownMenu { width:100px; font-size:11px; }
+  .replyPreview { font-size:11px; padding:3px 6px; }
+  .replyBubble { font-size:10px; padding:1px 4px; }
 }
