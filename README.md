@@ -4,6 +4,20 @@ ChatNest is a real-time messaging &amp; Code Sharing web application built using
 ## Project ScreenShot
 ![ChatNest Screenshot](./screenshot.png)
 
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+
+  <div style="flex: 0 0 50%; text-align: center; margin-bottom: 10px;">
+    <img src="./chatss.png" width="100%" />
+  </div>
+
+  <div style="flex: 0 0 50%; text-align: center; margin-bottom: 10px;">
+    <img src="./responsive.png" width="100%" />
+  </div>
+
+
+</div>
+
+
 ## Features
 🔹 **Real-time individual and group chat** (up to 100 users)  
 🔹 **Typing indicators** for active users  
