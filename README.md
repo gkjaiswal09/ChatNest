@@ -23,7 +23,10 @@ ChatNest is a real-time messaging &amp; Code Sharing web application built using
 - **Session Management**: express-session
 
 ## Setup Instructions
-1. Clone the repo (link coming soon).
+1. Clone the repo
+   ```bash
+   git clone https://github.com/im-h-a-r-s-h/ChatNest.git
+   ```
 2. Navigate to `/client` and run:
 
 ```bash
