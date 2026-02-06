@@ -25,6 +25,7 @@ const io = socketIO(server, {
     }
 });
 
+
 setInterval(() => {
     for (const room in messagesPerRoom) {
         messagesPerRoom[room] = [];
