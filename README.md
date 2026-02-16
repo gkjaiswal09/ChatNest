@@ -2,14 +2,6 @@
 
 ChatNest is a real-time messaging & Code Sharing web application built using the MERN stack and Socket.IO. It enables users to create chat rooms, exchange text messages, and share code snippets and files (up to 2MB) seamlessly, just like popular messaging apps. A button for future collaborative code editing has also been included for upcoming features.
 
-## 🌐 Live Deployment
-
-- **Frontend (Vercel):** https://chat-nest-nine.vercel.app/
-- **Backend (Render):** https://chatnest-1i5j.onrender.com
-- **Source Code (GitHub):** https://github.com/gkjaiswal09/ChatNest
-
----
-
 ## Project ScreenShot
 
 ![ChatNest Screenshot](./screenshot.png)
